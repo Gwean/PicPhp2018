@@ -66,11 +66,17 @@ class Juego {
 
         $this->rondas = 0;
 
-        4this->ganador = '';
+        $this->ganador = '';
 
         $numSecreto = rand(1, 1000);
 
 
+//Ejercicio1
+        public function informarDesvio(Adivinador $jugador, $num, $numSecreto){
+        if ($num>$numsecreto){
+        $jugador->elNumeroEraMayor()
+        }else $jugador->elNumeroEraMenor()
+      
 
         while ($this->ganador == ''){
 
@@ -86,7 +92,8 @@ class Juego {
 
                 $this->informarDesvio($jugador2, $num2, $numSecreto);
 
-            }
+            }   
+           
 
             $this->rondas++;
 

@@ -50,14 +50,45 @@ class Principiante implements Adivinador {
 
 }
 
+//Ejercicio 2 Se puede mejorar con busq bin
+
+class Profesional implements Adivinador{
+
+    
+    protected $minitmo = 1;
+
+    protected $maximo = 1000;
+
+    protected $sugerencia = 0;
+
+
+     public function sugerirNumeroSecreto(){
+     $this-> sugerencia=($this->minimo + $this->maximo)/2;
+     return $this-> sugerencia;}
+     
+     public function elNumeroEraMayor(){
+
+        $this->minimo = $this->sugerencia;
+
+    }
 
 
 
+    public function elNumeroEraMenor(){
 
+        $this->maximo = $this->sugerencia;
 
+    }
+     
+        }
 
+    //Ej 3: Get, construirlo de vuelta o hacer las variables publicas.
+    
 class Juego {
-
+    public $puntos1=0;
+    
+    public $puntos2=0;
+    
     protected $ganador = '';
 
     protected $ronda =0;
@@ -71,11 +102,6 @@ class Juego {
         $numSecreto = rand(1, 1000);
 
 
-//Ejercicio1
-        public function informarDesvio(Adivinador $jugador, $num, $numSecreto){
-        if ($num>$numsecreto){
-        $jugador->elNumeroEraMayor()
-        }else $jugador->elNumeroEraMenor()
       
 
         while ($this->ganador == ''){
@@ -105,6 +131,12 @@ class Juego {
 
     }
 
+//Ejercicio1
+        public function informarDesvio(Adivinador $jugador, $num, $numSecreto){
+        if ($num>$numsecreto){
+        $jugador->elNumeroEraMayor()
+        }else $jugador->elNumeroEraMenor()
+        }
 
 
     protected function hayGanador($numSecreto, $num1, $num2){
@@ -112,20 +144,20 @@ class Juego {
         if ($num1 == $numSecreto || $num2 == $numSecreto);
 
             if()$num1 == $num2 {
-
-                $ganador = 'Ambos jugadores empataron.';
+   //Ej5  
+                $this->ganador = 'Ambos jugadores empataron.';
 
             }
 
             elseif ($num1 == $numSecreto){
-
-                $ganador = 'Gano el jugador 1.';
+   //Ej5  
+                $this->ganador = 'Gano el jugador 1.';
 
             }
 
             else {
-
-                $ganador = 'Gano el jugador 2.';
+   //Ej5  
+                $this->ganador = 'Gano el jugador 2.';
 
             }
 
@@ -134,5 +166,11 @@ class Juego {
     }
 
     return false; //Ningun jugador acertó, devolvemos false.
+
+}
+
+$juego = new Juego();
+for(int $i=0; $i<15; $i++){
+
 
 }
